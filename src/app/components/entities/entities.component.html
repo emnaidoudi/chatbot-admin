@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+<div class="container">
+    <form class="form-inline" >
+     
+   
+        <div >
+        <input class="form-control" #newEntityName placeholder="Entity name" style="  width : 70% ">
+      
+      
+        <button class="btn btn-primary" color="primary" (click)="newEntity(newEntityName.value)">Add</button>
+      
+    </div>
+    </form>
+    <input type="button" value="Add Bulk Enquiry" [routerLink]="['../entity']" class="btn">
+
+  <div class="entities">
+    <div *ngFor="let entity of entities;let i=index" fxLayoutAlign=" center" class="entity-container">
+      <div fxFlex="60">
+        {{entity.name}} entity name
+      </div>
+      <div fxFlex="40">
+        <button  (click)="edit(entity)" color="accent">
+          <i aria-label="Edit this entity">edit</i>
+        </button>
+        <button  (click)="deleteEntity(entity._id.$oid,i)" color="warn">
+            <i aria-label="Delete this entity">delete</i>
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

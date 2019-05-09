@@ -1,0 +1,27 @@
+<div class="header" fxLayout="row" fxLayoutAlign=" center">
+  <h2 >List of Intents   
+    <i class="glyphicon glyphicon-plus-sign" (click)="add()" type="button" class="btn btn-primary">+</i>
+  </h2>
+  <button type="button" class="btn btn-success" (click)="trainModels()">Build Agent</button>
+</div>
+
+<div *ngFor="let intent of intents">
+   <div  class="well well-lg" style="max-width: 90rem;">
+
+    <b>{{intent["tag"]}}</b>
+          
+      <div style="float:right">
+        <span data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample"> 
+          <a  class="btn btn-info ">
+            <i  class="glyphicon glyphicon-pencil"></i> edit 
+          </a>
+        </span>
+        <span  (click)="delete(intent)" >
+          <button type="button" class="btn btn-default btn-sm">
+                <i class="glyphicon glyphicon-trash"></i>
+                delete 
+              </button>
+            </span>
+      </div>
+
+  </div>
